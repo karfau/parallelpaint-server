@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:flex="http://www.springframework.org/schema/flex"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+	   xmlns:p="http://www.springframework.org/schema/p"
+ 	   xmlns:aop="http://www.springframework.org/schema/aop"
+ 	   xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/flex 
+          http://www.springframework.org/schema/flex/spring-flex-1.0.xsd
+          http://www.springframework.org/schema/context
+ 		  http://www.springframework.org/schema/context/spring-context-3.0.xsd
+          http://www.springframework.org/schema/tx
+ 		  http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+ 		  http://www.springframework.org/schema/aop
+ 		  http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+ 		  http://www.springframework.org/schema/security
+		  http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+	<!-- Flex integration through BlazeDS -->
+	<flex:message-broker>
+		<flex:message-service
+			default-channels="my-polling-amf" />
+		<!-- ohne dieses Tag funktioniert Spring Security gar nicht! -->
+		<flex:secured/>
+	</flex:message-broker>
+	
+	<!-- Messaging destinations -->
+	<flex:message-destination id="chat" 
+		allow-subtopics="true"
+		subtopic-separator=":" />
+		
+	<!-- ############################################################################################ 
+     |   *Exponierte* "Domain Beans"
+     |   -> nur Angabe einer Bean-Referenz; die Beans selbst sind
+     |      zentral in applicationContext-config.xml definiert!
+     |   ############################################################################################
+     -->
+    
+    <!-- Expose the userService bean for BlazeDS remoting -->
+	<flex:remoting-destination ref="userService" />
+	
+	<flex:remoting-destination ref="elementPersistanceService" />
+
+</beans>

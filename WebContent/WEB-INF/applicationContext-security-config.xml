@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/security
+						http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+	<http>
+		<form-login default-target-url="/SpringJPATC_02/AFlexClient-debug/AFlexClient.html"/>
+	</http>
+	
+	<authentication-manager>
+		<!-- es soll ein eigener UserDetailsService zur Authentifizierung genutzt werden -->
+		<authentication-provider user-service-ref="ppUserDetailsService" />
+<!--	   <authentication-provider>-->
+<!--	       <user-service>-->
+<!--	        <user name="harry" password="secret" authorities="ROLE_USER" />-->
+<!--	       </user-service>-->
+<!--	   </authentication-provider>-->
+	</authentication-manager>
+	
+	
+	<!-- eigener  JPA-basierter UserDetailsService --> 
+	<beans:bean id="ppUserDetailsService" class="services.PPUserDetailsService"> 
+    	<!-- zur eigentlichen DB-Abfrage wird die Bean 'services.UserDaoImpl' verwendet -->
+    	<beans:property name="userDaoBean" ref="userDao"/> 
+	</beans:bean>  
+
+</beans:beans>
