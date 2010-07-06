@@ -1,0 +1,34 @@
+ParalellPaint
+- Paint for the browser
+- drawing objects instead of painnting with brushes
+- just start: no registration required for painting
+- like a wiki: every registered user can collaborate
+- multi-user: registered users can edit a painting in paralell
+- the drawing elements have the following editable attributes:
+	position, color(fill/stroke), alpha(fill/stroke), stroke-width, existance ;)
+- each drawing has its own url for sharing
+- PNG-/JPG-export
+- posibility to take snapshots from a drawing that are not editable
+- more to come ... ?
+
+The project was developed by 
+Chr. Bewernitz (alias karfau, mainly client, http://github.com/karfau/parallelpaint-client) 
+and A. Semt (mainly server, http://github.com/karfau/parallelpaint-server)
+for Multi Media Engeneering 2 @ Beuth Hochschule für Technik Berlin in summer term 2010
+
+In its current state ParalellPaint is a prototype and should not be used productive.
+Before having a final version there will have to be a lot of improvements 
+regarding performance and elegance of the already implemented features, 
+primarily in the server-side of the project.
+
+Details about the server:
+It uses/was developed with
+- Tomcat 6
+- BlazeDS 4
+- MySQL 5 
+- Eclipselink as JPA2 implementation
+- Spring 3
+- Spring BlazeDS Integration 1.0.3
+- Spring Security 3
+using SpringSource Tool Suite IDE 2.3.2 (based on Eclipse 3.5.2)
+
