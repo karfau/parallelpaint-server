@@ -1,0 +1,27 @@
+ACHTUNG: Nicht für den produktiv-Einsatz geeignet!
+Wer mich dabei unterstützen möchte dieses Projekt in einen produktiv verwendbaren Zustand zu bringen,
+meldet sich bitte bei mir: student@bht.karfau.de
+
+Installation:
+A)
+Installieren Sie MySQL (getestet mit Version 5.1.34) und richten sie folgendes ein:
+1. eine Datenbank mit dem Namen parallel_paint
+2. einen User mit allen Rechten auf dieser Datenbank.Dieser kann verändert werden,
+	standardmäßig wird erwartet das username und passwort "mme2" sind.
+
+B) Entpacken sie die Datei "apache-tomcat-6.0.26 mit parallelPaint.zip" in ein Verzeichnis Ihrer Wahl.
+Sollte die Umgebungsvariable "CATALINA_HOME" vorhanden sein entfernen sie diese oder setzten Sie sie auf
+gerade enpackte Verzeichnis (im weiteren SERVER_DIR genannt, SERVER_DIR/webapps/SpringJPATC_02 ist PP_DIR).
+Details: 
+Die Verwendung von Spring erfordert spezielle Kommandozeilenparameter für die JVM. 
+Diese werden in der Datei "SERVER_DIR/bin/setenv.bat" gesetzt, die automatisch bemi Start des Servers aufgerufen wird.
+Um eine andere Tomcat Installation für die Anwendung zu nutzen muss die setenv.bat und die PP_DIR in diese 
+Installation kopiert werden (SERVER_DIR ist dann natürlich das dortige Tomcat-Verzeichnis).
+
+Starten:
+starten Sie MySQL
+führen sie die "SERVER_DIR/bin/startup.bat" aus
+wenn die webapp erfolgreich gestartet wurde ist sie unter der folgenden url erreichbar:
+http://localhost:8080/SpringJPATC_02/
+
+Bei fragen gerne an mich wenden ;)
